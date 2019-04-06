@@ -108,6 +108,7 @@ imap.once("ready", function () {
                         console.log("==> " + numMessages + " new messages arrived!")
                     });
                 }
+                found = false;    // reset since this would imply the email has been read/deleted/acknowledged
             });
         })
     }, 10000)
