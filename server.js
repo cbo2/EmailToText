@@ -73,9 +73,8 @@ imap.once("ready", function () {
                     // send out the text
                     if (!found) {
                         // send text with Twilio
-                        var phoneNumber = '6309955170'
                         client.messages.create({
-                            to: phoneNumber,
+                            to: process.env.PHONE_NUMBER,
                             from: '+16307915544', // Don't touch me!
                             body: "Hurry, there is an appointment available!!"
                         });
