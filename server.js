@@ -112,7 +112,7 @@ imap.once("ready", function () {
                 }
             });
         })
-    }, 10000)
+    }, 30000)
 });
 imap.once("error", function (err) {
     console.log(err);
