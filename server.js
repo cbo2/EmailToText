@@ -2,6 +2,7 @@ require("dotenv").config();
 var twilio = require('twilio');
 var express = require("express");
 var bodyParser = require("body-parser");
+var moment = require('moment');
 
 var Imap = require("imap");
 var inspect = require("util").inspect;
@@ -57,6 +58,13 @@ setInterval(function () {
     http.get(process.env.BASE_URL);
 }, 300000); // every 5 minutes (300000)
 
+// var message = "Hurry, Hurry, Hurry, Hurry \
+// Hurry, Hurry, Hurry, Hurry \
+// there is an appointment available!! \
+// Hurry, Hurry, Hurry, Hurry \
+// Hurry, Hurry, Hurry, Hurry"
+
+
 function openInbox(cb) {
     imap.openBox("INBOX", true, cb);
 }
@@ -69,6 +77,14 @@ imap.once("ready", function () {
                 // if (err) throw err;
                 if (err) console.log("Error: " + err);
                 console.log("RESULTS ==> " + results)
+                var today = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
+                var message = `============== \n` +
+                    `${today} \n` +
+                    `hurry, make your appointment! \n\n` +
+                    `============== \n`
+                var message2 = `============== \n` +
+                    `get'r done! \n\n` +
+                    `============== \n`
                 if (results != "") {
                     // send out the text
                     if (!found) {
@@ -76,7 +92,13 @@ imap.once("ready", function () {
                         client.messages.create({
                             to: process.env.PHONE_NUMBER,
                             from: '+16307915544', // Don't touch me!
-                            body: "Hurry, there is an appointment available!!"
+                            body: message
+                        });
+                        today = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
+                        client.messages.create({
+                            to: process.env.PHONE_NUMBER,
+                            from: '+16307915544', // Don't touch me!
+                            body: message2
                         });
                     }
                     // set found to true to avoid repeated texts
