@@ -57,7 +57,7 @@ var http = require("http");
 setInterval(function () {
     http.get(process.env.BASE_URL);
     console.log(`hitting the api........`)
-}, 300000); // every 5 minutes (300000)
+}, 30000); // every 5 minutes (300000)
 
 // var message = "Hurry, Hurry, Hurry, Hurry \
 // Hurry, Hurry, Hurry, Hurry \
