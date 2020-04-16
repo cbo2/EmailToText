@@ -73,14 +73,15 @@ imap.once("ready", function () {
     curInterval = setInterval(function () {
         openInbox(function (err, box) {
             if (err) throw err;
-            imap.search(["UNSEEN", ["SINCE", "April 3, 2019"], ["SUBJECT", "An Earlier Appointment Has Become Available!"]], function (err, results) {
-                // if (err) throw err;
+            // imap.search(["UNSEEN", ["SINCE", "April 3, 2019"], ["SUBJECT", "An Earlier Appointment Has Become Available!"]], function (err, results) {
+            imap.search(["UNSEEN", ["SINCE", "April 3, 2019"], ["FROM", "corehomefitness.com"]], function (err, results) {
+                    // if (err) throw err;
                 if (err) console.log("Error: " + err);
                 console.log("RESULTS ==> " + results)
                 var today = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
                 var message = `============== \n` +
                     `${today} \n` +
-                    `hurry, make your appointment! \n\n` +
+                    `hurry, get your dumbbells! \n\n` +
                     `============== \n`
                 var message2 = `============== \n` +
                     `get'r done! \n\n` +
