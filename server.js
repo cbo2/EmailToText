@@ -77,7 +77,7 @@ imap.once("ready", function () {
             imap.search(["UNSEEN", ["SINCE", "April 3, 2019"], ["FROM", "info@corehomefitness.com"]], function (err, results) {
                     // if (err) throw err;
                 if (err) console.log("Error: " + err);
-                console.log("RESULTS ==> " + results)
+                console.log("RESULTS corehomefitness ==> " + results)
                 var today = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
                 var message = `============== \n` +
                     `${today} \n` +
