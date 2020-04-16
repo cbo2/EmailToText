@@ -1,5 +1,5 @@
 # EmailToText
-Search for something specific in email and send out a text notification upon arrival
+This will constantly scan your email inbox for some specific text and send out a text notification to your phone once the text is detected.
 
 ## APIs used
 - imap to interface to email   
