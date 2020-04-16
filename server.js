@@ -75,7 +75,7 @@ imap.once("ready", function () {
         openInbox(function (err, box) {
             if (err) throw err;
             // imap.search(["UNSEEN", ["SINCE", "April 3, 2019"], ["SUBJECT", "An Earlier Appointment Has Become Available!"]], function (err, results) {
-            imap.search(["UNSEEN", ["SINCE", "April 3, 2019"], ["FROM", "info@corehomefitness.com", "bowflex@e.bowflex.com"]], function (err, results) {
+            imap.search(["UNSEEN", ["SINCE", "April 3, 2019"], ["FROM", "info@corehomefitness.com" | "bowflex@e.bowflex.com"]], function (err, results) {
                     // if (err) throw err;
                 if (err) console.log("Error: " + err);
                 console.log("RESULTS corehomefitness ==> " + results)
