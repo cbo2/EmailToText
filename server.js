@@ -103,7 +103,7 @@ imap.once("ready", function () {
                                 from: '+16306867273', // Don't touch me!
                                 body: message2
                             });                            
-                        }, 1500);
+                        }, 3000);
                     }
                     // set found to true to avoid repeated texts
                     found = true;
