@@ -97,14 +97,13 @@ imap.once("ready", function () {
                             body: message
                         });
                         today = moment().format("YYYY-MM-DD HH:mm:ss:SSS");
-                        sleep(1500)
-                        .then(() => {
+                        setTimeout(() => {  
                             client.messages.create({
                                 to: process.env.PHONE_NUMBER,
                                 from: '+16306867273', // Don't touch me!
                                 body: message2
                             });                            
-                        }); // every 5 minutes (300000)
+                        }, 1500);
                     }
                     // set found to true to avoid repeated texts
                     found = true;
